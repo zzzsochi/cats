@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='cats',
     description='More cats to your life!',
-    version='0.1.0',
+    version='0.1.1',
     classifiers=[
         "License :: OSI Approved :: BSD License",
         "Operating System :: POSIX",
