@@ -3,6 +3,7 @@ import asyncio
 from cats.database import save
 
 PARSERS = [
+    'asciiworld',
     'user_xmission_com',
 ]
 

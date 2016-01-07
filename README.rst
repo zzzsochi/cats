@@ -43,4 +43,5 @@ Sources
 -------
 
 1. https://user.xmission.com/~emailbox/ascii_cats.htm
-2. ...to be continued.
+2. http://www.asciiworld.com/-Cats-.html
+3. ...to be continued.
