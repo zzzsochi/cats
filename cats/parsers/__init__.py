@@ -7,7 +7,6 @@ PARSERS = [
 ]
 
 async def parse_all(loop):
-
     futures = []
 
     for parser_name in PARSERS:
@@ -16,6 +15,7 @@ async def parse_all(loop):
 
         fut = asyncio.ensure_future(parser.parse(loop=loop), loop=loop)
         futures.append(fut)
+        print("Parse {!r}".format(parser_name))
 
     while futures:
         done, futures = await asyncio.wait(
@@ -24,3 +24,4 @@ async def parse_all(loop):
 
         for name, cats in [f.result() for f in done]:
             save(name, cats)
+            print("Parsed {!r}: {} cats".format(name, len(cats)))

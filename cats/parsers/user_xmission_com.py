@@ -1,6 +1,8 @@
 import aiohttp
 import bs4
 
+from .helpers import prepare_cat
+
 URL = 'https://user.xmission.com/~emailbox/ascii_cats.htm'
 
 
@@ -26,23 +28,9 @@ async def parse(loop):
                .replace('</b>', '')
                .replace('<font color="#ffffff">', '')
                .replace('</font>', '')
-               .replace('&gt;', '>')
-               .replace('&lt;', '<')
-               .replace('&amp;', '&')
                )
 
-        def strip_first(lines):
-            res = lines.copy()
-            for line in lines:
-                if not line.strip():
-                    del res[0]
-                else:
-                    break
-
-            return res
-
-        cat = '\n'.join(strip_first(cat.split('\n')))
-        cat = '\n'.join(reversed(strip_first(list(reversed(cat.split('\n'))))))
+        cat = prepare_cat(cat)
 
         if len(cat.strip()) > 5:
             cats.append(cat)
